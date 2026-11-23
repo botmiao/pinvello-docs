@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pinvello 隐私政策 / Privacy Policy</title>
+  <style>
+    :root {
+      --bg: #faf6ee;
+      --card: #fffdf8;
+      --border: #e4d8c5;
+      --ink: #332419;
+      --muted: #5f4e3d;
+      --btn: #5c432e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Microsoft YaHei UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.7;
+    }
+    main {
+      max-width: 860px;
+      margin: 36px auto;
+      padding: 0 20px 40px;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+      font-size: 14px;
+    }
+    .nav a { color: var(--btn); text-decoration: none; font-weight: 600; margin-right: 14px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 32px;
+      box-shadow: 0 8px 24px rgba(51, 36, 25, 0.05);
+      margin-bottom: 20px;
+    }
+    h1 { margin: 0 0 6px; font-size: 26px; }
+    h2 { margin: 0 0 12px; font-size: 21px; color: var(--btn); }
+    h3 { margin: 18px 0 6px; font-size: 16px; color: var(--ink); }
+    p, li { color: var(--muted); }
+    code {
+      background: #f3ead9;
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-size: 0.92em;
+    }
+    .meta { font-size: 14px; color: #7a6855; margin-bottom: 0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="nav">
+      <div>
+        <a href="./index.html">&larr; Pinvello 首页 / Home</a>
+        <a href="./support.html">技术支持 / Support</a>
+      </div>
+      <div>
+        <a href="#zh">中文声明</a>
+        <a href="#en">English Policy</a>
+      </div>
+    </div>
+
+    <section class="card">
+      <h1>Pinvello 隐私政策 / Privacy Policy</h1>
+      <p class="meta">生效日期 / Effective Date: 2026-11-24 &middot; 开发者 / Developer: iori</p>
+    </section>
+
+    <section class="card" id="zh">
+      <h2>中文声明</h2>
+      <p>Pinvello 是一款运行在 Windows 11 本地桌面壁纸层的开源字体兼容闭源商业桌面便笺应用。我们高度重视您的隐私，<strong>Pinvello 坚持完全离线优先，不采集、不上传、也不出售您的任何个人数据或便笺内容。</strong></p>
+
+      <h3>1. 本地存储与便笺数据</h3>
+      <ul>
+        <li>您的所有便笺正文、位置坐标、颜色、外观配置与扩展文件仅保存于您本地计算机的用户目录（<code>%LOCALAPPDATA%\Pinvello\notes.json</code> 及 <code>extensions\</code>、<code>cache\</code>、<code>logs\</code> 子目录），不会向开发者或任何第三方服务器发送。</li>
+        <li>日志文件仅包含运行诊断与错误排障信息，且默认存放于 <code>%LOCALAPPDATA%\Pinvello\logs\</code>；不会记录您的便笺私有文本用于上传或分析。</li>
+      </ul>
+
+      <h3>2. 无遥测、无账号、无云同步</h3>
+      <ul>
+        <li>Pinvello 不要求注册或登录开发者账号。</li>
+        <li>应用内部不包含任何第三方分析 SDK、广告 SDK 或行为埋点。</li>
+      </ul>
+
+      <h3>3. Microsoft Store 内购与离线授权缓存</h3>
+      <ul>
+        <li>当您在偏好设置中购买或恢复「Pinvello Pro」买断解锁（Product ID: <code>pinvello_pro_lifetime</code>）时，支付流程与订单校验完全由 Windows 系统的 <code>Windows.Services.Store</code> 接口与微软官方商店托管。Pinvello 无法获取也不会保存您的银行卡号、账单地址或付款凭据。</li>
+        <li>为支持断网环境下离线正常使用 Pro 权益，应用会在本地 <code>%LOCALAPPDATA%\Pinvello\extensions\license.bin</code> 中保存经当前 Windows 用户 DPAPI（<code>CryptProtectData</code>）加密后的授权状态标记，仅包含包身份标识、Pro 附加组件编号、授权等级与校验时间戳。</li>
+      </ul>
+
+      <h3>4. 桌面交互与权限说明（<code>runFullTrust</code>）</h3>
+      <ul>
+        <li>Pinvello 通过 Windows <code>WH_MOUSE_LL</code> 与 <code>WH_KEYBOARD_LL</code> 低级钩子在壁纸层实现便笺的点击识别、拖拽、框选、倾角微调及 <code>Win+D</code> 返回桌面恢复。</li>
+        <li>上述桌面交互信号仅在本地内存中即时处理用于判断命中目标窗口与热键动作；<strong>Pinvello 不会记录您的键盘击键历史（无键盘记录），也不会录制屏幕内容或通过网络传送输入事件。</strong></li>
+      </ul>
+
+      <h3>5. 数据删除</h3>
+      <p>您可随时删除 <code>%LOCALAPPDATA%\Pinvello\</code> 目录以彻底清除所有本地便笺记录、日志与离线授权缓存。</p>
+    </section>
+
+    <section class="card" id="en">
+      <h2>English Policy</h2>
+      <p>Pinvello is a Windows 11 desktop sticky-notes application pinned directly to your wallpaper layer. We respect your privacy: <strong>Pinvello operates offline-first and does not collect, upload, track, or sell your personal data or note contents.</strong></p>
+
+      <h3>1. Local Storage &amp; Note Data</h3>
+      <ul>
+        <li>All note contents, positions, tints, visual preferences, and optional user extensions remain solely on your device inside <code>%LOCALAPPDATA%\Pinvello\</code> (<code>notes.json</code>, <code>extensions\</code>, <code>cache\</code>, and <code>logs\</code>).</li>
+        <li>Local diagnostic logs stored in <code>%LOCALAPPDATA%\Pinvello\logs\</code> remain exclusively on your computer.</li>
+      </ul>
+
+      <h3>2. Zero Telemetry &amp; No Developer Account</h3>
+      <ul>
+        <li>Pinvello does not require creating a developer account and embeds no analytics, advertising, or behavioral tracking SDKs.</li>
+      </ul>
+
+      <h3>3. Microsoft Store Purchases &amp; Offline Cache</h3>
+      <ul>
+        <li>In-app purchases and purchase restoration for Pinvello Pro (<code>pinvello_pro_lifetime</code>) are handled entirely by the Windows operating system via <code>Windows.Services.Store</code> and Microsoft Store. Pinvello never accesses or stores payment card details or personal Microsoft billing data.</li>
+        <li>To preserve Pro access offline, Pinvello stores a Windows DPAPI-encrypted (<code>CryptProtectData</code>, bound to your local Windows user profile) entitlement marker at <code>%LOCALAPPDATA%\Pinvello\extensions\license.bin</code>.</li>
+      </ul>
+
+      <h3>4. Desktop Interaction &amp; <code>runFullTrust</code> Disclosure</h3>
+      <ul>
+        <li>Pinvello uses local Windows hooks (<code>WH_MOUSE_LL</code> and <code>WH_KEYBOARD_LL</code>) strictly to hit-test, drag, marquee-select, tilt-adjust (<code>Ctrl+Alt+Arrow</code>), and recover wallpaper-layer sticky notes after <code>Win+D</code>.</li>
+        <li>All input events are evaluated transiently in local memory only; <strong>Pinvello does not log keystrokes, capture screenshots for upload, or transmit input events over any network.</strong></li>
+      </ul>
+
+      <h3>5. Data Removal &amp; Contact</h3>
+      <p>You may permanently erase all local notes, preferences, logs, and cached license state at any time by deleting <code>%LOCALAPPDATA%\Pinvello\</code>. For privacy questions, please reach out via our <a href="./support.html">Support Page</a>.</p>
+    </section>
+  </main>
+</body>
+</html>

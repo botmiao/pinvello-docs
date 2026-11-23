@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pinvello — Windows 11 桌面壁纸层便笺 / Desktop Sticky Notes</title>
+  <style>
+    :root {
+      --bg: #faf6ee;
+      --card: #fffdf8;
+      --border: #e4d8c5;
+      --accent: #c29b4e;
+      --ink: #332419;
+      --muted: #6f5d4b;
+      --btn: #5c432e;
+      --btn-txt: #fffdf8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Microsoft YaHei UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+    main {
+      max-width: 860px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 30px;
+      box-shadow: 0 8px 24px rgba(51, 36, 25, 0.06);
+      margin-bottom: 20px;
+    }
+    h1 { margin: 0 0 8px; font-size: 28px; }
+    h2 { margin: 22px 0 8px; font-size: 19px; color: var(--btn); }
+    p, li { color: var(--muted); }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      color: var(--ink);
+      background: #f4ecdc;
+    }
+    .btn-primary {
+      background: var(--btn);
+      border-color: #4a3422;
+      color: var(--btn-txt);
+    }
+    footer {
+      text-align: center;
+      font-size: 13px;
+      color: #8b7967;
+      margin-top: 24px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="card">
+      <h1>Pinvello</h1>
+      <p>Windows 11 桌面壁纸层拟物便笺应用 — 驻留壁纸之上、图标之下，无惧 Win+D 与资源管理器重启。</p>
+      <p>Tactile Windows 11 sticky notes pinned directly onto your desktop wallpaper layer, behind desktop icons and resilient across Win+D.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="./privacy.html">隐私政策 / Privacy Policy</a>
+        <a class="btn" href="./support.html">支持与帮助 / Support</a>
+        <a class="btn" href="https://github.com/botmiao/pinvello-docs/issues">提交反馈 / Report Issue</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>官方页面索引 / Documentation Links</h2>
+      <ul>
+        <li><a href="./privacy.html">Pinvello 隐私政策 / Privacy Policy</a> — 离线优先存储、零遥测与 Microsoft Store 内购说明。</li>
+        <li><a href="./support.html">Pinvello 常见问题与支持 / Support & FAQ</a> — 免费版与 Pinvello Pro、时间胶囊、恢复购买与本地数据管理。</li>
+      </ul>
+    </section>
+
+    <footer>Pinvello &copy; 2026 iori · Windows 11 Desktop Sticky Notes</footer>
+  </main>
+</body>
+</html>
