@@ -3,140 +3,221 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pinvello 隐私政策 / Privacy Policy</title>
-  <style>
-    :root {
-      --bg: #faf6ee;
-      --card: #fffdf8;
-      --border: #e4d8c5;
-      --ink: #332419;
-      --muted: #5f4e3d;
-      --btn: #5c432e;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: "Segoe UI", "Microsoft YaHei UI", system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      line-height: 1.7;
-    }
-    main {
-      max-width: 860px;
-      margin: 36px auto;
-      padding: 0 20px 40px;
-    }
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 18px;
-      font-size: 14px;
-    }
-    .nav a { color: var(--btn); text-decoration: none; font-weight: 600; margin-right: 14px; }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 28px 32px;
-      box-shadow: 0 8px 24px rgba(51, 36, 25, 0.05);
-      margin-bottom: 20px;
-    }
-    h1 { margin: 0 0 6px; font-size: 26px; }
-    h2 { margin: 0 0 12px; font-size: 21px; color: var(--btn); }
-    h3 { margin: 18px 0 6px; font-size: 16px; color: var(--ink); }
-    p, li { color: var(--muted); }
-    code {
-      background: #f3ead9;
-      padding: 2px 6px;
-      border-radius: 5px;
-      font-size: 0.92em;
-    }
-    .meta { font-size: 14px; color: #7a6855; margin-bottom: 0; }
-  </style>
+  <title
+    data-title-zh="Pinvello 隐私政策 / Privacy Policy"
+    data-title-en="Privacy Policy — Pinvello"
+  >Pinvello 隐私政策 / Privacy Policy</title>
+  <meta name="description" content="Pinvello 隐私政策：100% 离线优先本地存储、零遥测无账号、Microsoft Store 内购与 DPAPI 离线缓存、runFullTrust 低级钩子透明说明。" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/apple-touch-icon.png" />
+  <link rel="stylesheet" href="./assets/css/tokens.css" />
+  <link rel="stylesheet" href="./assets/css/main.css" />
 </head>
 <body>
-  <main>
-    <div class="nav">
-      <div>
-        <a href="./index.html">&larr; Pinvello 首页 / Home</a>
-        <a href="./support.html">技术支持 / Support</a>
-      </div>
-      <div>
-        <a href="#zh">中文声明</a>
-        <a href="#en">English Policy</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./index.html">
+        <img src="./assets/img/logo-128.webp" width="34" height="34" alt="Pinvello Logo" />
+        <span>Pinvello</span>
+        <span class="version-badge">v0.2.0</span>
+      </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="主导航">
+        <ul class="nav-links">
+          <li><a href="./index.html" data-i18n="nav.overview">功能与体验</a></li>
+          <li><a class="is-current" href="./privacy.html" data-i18n="nav.privacy">隐私政策</a></li>
+          <li><a href="./support.html" data-i18n="nav.support">支持中心</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" class="is-active" data-lang-btn="zh" aria-pressed="true">中文</button>
+          <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+        </div>
+        <a
+          class="btn btn-primary btn-sm btn-store-nav"
+          href="https://apps.microsoft.com/detail/9NRGMTLZ4JXN"
+          target="_blank"
+          rel="noopener"
+          data-i18n="nav.store"
+        >Microsoft Store 获取</a>
+        <button
+          type="button"
+          class="mobile-toggle"
+          id="mobile-nav-toggle"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >☰</button>
       </div>
     </div>
+  </header>
 
-    <section class="card">
-      <h1>Pinvello 隐私政策 / Privacy Policy</h1>
-      <p class="meta">生效日期 / Effective Date: 2026-11-24 &middot; 开发者 / Developer: iori</p>
+  <main class="container" data-doc-page="privacy" data-doc-view="both">
+    <section class="doc-hero">
+      <a class="pill-btn" href="./index.html" data-i18n="privacy.back">← 返回产品官网</a>
+      <h1 data-i18n="privacy.hero.title">隐私政策与透明权限说明</h1>
+      <p style="margin:0;color:var(--ink-muted)" data-i18n="privacy.hero.sub">
+        生效日期：2026-11-24 · 开发者：iori · 微软商店应用 ID：9NRGMTLZ4JXN
+      </p>
+
+      <div class="doc-summary-grid" id="summary">
+        <article class="doc-sum-card">
+          <h3 data-i18n="privacy.sum1.t">100% 本地离线存储</h3>
+          <p data-i18n="privacy.sum1.d">所有便笺正文、位置、外观与扩展仅保存在 %LOCALAPPDATA%\Pinvello\，从不上传服务器。</p>
+        </article>
+        <article class="doc-sum-card">
+          <h3 data-i18n="privacy.sum2.t">零遥测 / 无账号</h3>
+          <p data-i18n="privacy.sum2.d">不要求注册账号，不集成任何第三方统计 SDK、广告 SDK 或行为埋点。</p>
+        </article>
+        <article class="doc-sum-card">
+          <h3 data-i18n="privacy.sum3.t">Store 内购 + DPAPI</h3>
+          <p data-i18n="privacy.sum3.d">支付由微软商店托管；离线授权 license.bin 仅经当前 Windows 用户 CryptProtectData 加密缓存。</p>
+        </article>
+        <article class="doc-sum-card">
+          <h3 data-i18n="privacy.sum4.t">runFullTrust 透明承诺</h3>
+          <p data-i18n="privacy.sum4.d">WH_MOUSE_LL / WH_KEYBOARD_LL 仅本地即时判定点击、拖拽与 Win+D，绝不记录击键。</p>
+        </article>
+      </div>
+
+      <div class="doc-view-bar">
+        <div class="doc-view-pills" role="group" aria-label="Document view language">
+          <button type="button" class="pill-btn is-active" data-doc-view-btn="both" aria-pressed="true" data-i18n="doc.view.both">双语对照</button>
+          <button type="button" class="pill-btn" data-doc-view-btn="zh" aria-pressed="false" data-i18n="doc.view.zh">仅看中文</button>
+          <button type="button" class="pill-btn" data-doc-view-btn="en" aria-pressed="false" data-i18n="doc.view.en">English Only</button>
+        </div>
+        <div style="font-size:0.84rem;color:var(--ink-muted)">
+          <a href="./PRIVACY.md">Markdown Source (PRIVACY.md)</a>
+        </div>
+      </div>
     </section>
 
-    <section class="card" id="zh">
-      <h2>中文声明</h2>
-      <p>Pinvello 是一款运行在 Windows 11 本地桌面壁纸层的开源字体兼容闭源商业桌面便笺应用。我们高度重视您的隐私，<strong>Pinvello 坚持完全离线优先，不采集、不上传、也不出售您的任何个人数据或便笺内容。</strong></p>
+    <div class="doc-layout">
+      <aside class="doc-toc" aria-label="目录">
+        <h2 data-i18n="privacy.toc.title">目录导航</h2>
+        <ul>
+          <li><a href="#summary" data-i18n="privacy.toc.sum">隐私摘要 4 原则</a></li>
+          <li data-doc-lang="zh"><a href="#zh" data-i18n="privacy.toc.zh">中文完整声明</a></li>
+          <li data-doc-lang="en"><a href="#en" data-i18n="privacy.toc.en">English Policy</a></li>
+          <li><a href="#notices" data-i18n="privacy.toc.oss">开源字体与第三方声明</a></li>
+        </ul>
+      </aside>
 
-      <h3>1. 本地存储与便笺数据</h3>
-      <ul>
-        <li>您的所有便笺正文、位置坐标、颜色、外观配置与扩展文件仅保存于您本地计算机的用户目录（<code>%LOCALAPPDATA%\Pinvello\notes.json</code> 及 <code>extensions\</code>、<code>cache\</code>、<code>logs\</code> 子目录），不会向开发者或任何第三方服务器发送。</li>
-        <li>日志文件仅包含运行诊断与错误排障信息，且默认存放于 <code>%LOCALAPPDATA%\Pinvello\logs\</code>；不会记录您的便笺私有文本用于上传或分析。</li>
-      </ul>
+      <div class="doc-content">
+        <section class="doc-card" id="zh" data-doc-lang="zh">
+          <h2>中文声明（简体中文）</h2>
+          <p>
+            Pinvello 是一款运行在 Windows 11 本地桌面壁纸层的开源字体兼容闭源商业桌面便笺应用。我们高度重视您的隐私，<strong>Pinvello 坚持完全离线优先，不采集、不上传、也不出售您的任何个人数据或便笺内容。</strong>
+          </p>
 
-      <h3>2. 无遥测、无账号、无云同步</h3>
-      <ul>
-        <li>Pinvello 不要求注册或登录开发者账号。</li>
-        <li>应用内部不包含任何第三方分析 SDK、广告 SDK 或行为埋点。</li>
-      </ul>
+          <h3>1. 本地存储与便笺数据</h3>
+          <ul>
+            <li>您的所有便笺正文、位置坐标、颜色、外观配置与扩展文件仅保存于您本地计算机的用户目录（<code>%LOCALAPPDATA%\Pinvello\notes.json</code> 及 <code>extensions\</code>、<code>cache\</code>、<code>logs\</code> 子目录），不会向开发者或任何第三方服务器发送。</li>
+            <li>日志文件仅包含运行诊断与错误排障信息，且默认存放于 <code>%LOCALAPPDATA%\Pinvello\logs\</code>；不会记录您的便笺私有文本用于上传或分析。</li>
+          </ul>
 
-      <h3>3. Microsoft Store 内购与离线授权缓存</h3>
-      <ul>
-        <li>当您在偏好设置中购买或恢复「Pinvello Pro」买断解锁（Product ID: <code>pinvello_pro_lifetime</code>）时，支付流程与订单校验完全由 Windows 系统的 <code>Windows.Services.Store</code> 接口与微软官方商店托管。Pinvello 无法获取也不会保存您的银行卡号、账单地址或付款凭据。</li>
-        <li>为支持断网环境下离线正常使用 Pro 权益，应用会在本地 <code>%LOCALAPPDATA%\Pinvello\extensions\license.bin</code> 中保存经当前 Windows 用户 DPAPI（<code>CryptProtectData</code>）加密后的授权状态标记，仅包含包身份标识、Pro 附加组件编号、授权等级与校验时间戳。</li>
-      </ul>
+          <h3>2. 无遥测、无账号、无云同步</h3>
+          <ul>
+            <li>Pinvello 不要求注册或登录开发者账号。</li>
+            <li>应用内部不包含任何第三方分析 SDK、广告 SDK 或行为埋点。</li>
+          </ul>
 
-      <h3>4. 桌面交互与权限说明（<code>runFullTrust</code>）</h3>
-      <ul>
-        <li>Pinvello 通过 Windows <code>WH_MOUSE_LL</code> 与 <code>WH_KEYBOARD_LL</code> 低级钩子在壁纸层实现便笺的点击识别、拖拽、框选、倾角微调及 <code>Win+D</code> 返回桌面恢复。</li>
-        <li>上述桌面交互信号仅在本地内存中即时处理用于判断命中目标窗口与热键动作；<strong>Pinvello 不会记录您的键盘击键历史（无键盘记录），也不会录制屏幕内容或通过网络传送输入事件。</strong></li>
-      </ul>
+          <h3>3. Microsoft Store 内购与离线授权缓存</h3>
+          <ul>
+            <li>当您在偏好设置中购买或恢复「Pinvello Pro」买断解锁（Product ID: <code>pinvello_pro_lifetime</code>，Store ID: <code>9NNBLG3KFLB5</code>）时，支付流程与订单校验完全由 Windows 系统的 <code>Windows.Services.Store</code> 接口与微软官方商店托管。Pinvello 无法获取也不会保存您的银行卡号、账单地址或付款凭据。</li>
+            <li>为支持断网环境下离线正常使用 Pro 权益，应用会在本地 <code>%LOCALAPPDATA%\Pinvello\extensions\license.bin</code> 中保存经当前 Windows 用户 DPAPI（<code>CryptProtectData</code>）加密后的授权状态标记，仅包含包身份标识（<code>47715iori.Pinvello</code>）、Pro 附加组件编号、授权等级与校验时间戳。</li>
+          </ul>
 
-      <h3>5. 数据删除</h3>
-      <p>您可随时删除 <code>%LOCALAPPDATA%\Pinvello\</code> 目录以彻底清除所有本地便笺记录、日志与离线授权缓存。</p>
-    </section>
+          <h3>4. 桌面交互与权限说明（<code>runFullTrust</code>）</h3>
+          <ul>
+            <li>Pinvello 通过 Windows <code>WH_MOUSE_LL</code> 与 <code>WH_KEYBOARD_LL</code> 低级钩子在壁纸层实现便笺的点击识别、拖拽、框选、倾角微调及 <code>Win+D</code> 返回桌面恢复。</li>
+            <li>上述桌面交互信号仅在本地内存中即时处理用于判断命中目标窗口与热键动作；<strong>Pinvello 不会记录您的键盘击键历史（无键盘记录），也不会录制屏幕内容或通过网络传送输入事件。</strong></li>
+          </ul>
 
-    <section class="card" id="en">
-      <h2>English Policy</h2>
-      <p>Pinvello is a Windows 11 desktop sticky-notes application pinned directly to your wallpaper layer. We respect your privacy: <strong>Pinvello operates offline-first and does not collect, upload, track, or sell your personal data or note contents.</strong></p>
+          <h3>5. 数据删除</h3>
+          <ul>
+            <li>您可随时删除 <code>%LOCALAPPDATA%\Pinvello\</code> 目录以彻底清除所有本地便笺记录、日志与离线授权缓存。</li>
+          </ul>
+        </section>
 
-      <h3>1. Local Storage &amp; Note Data</h3>
-      <ul>
-        <li>All note contents, positions, tints, visual preferences, and optional user extensions remain solely on your device inside <code>%LOCALAPPDATA%\Pinvello\</code> (<code>notes.json</code>, <code>extensions\</code>, <code>cache\</code>, and <code>logs\</code>).</li>
-        <li>Local diagnostic logs stored in <code>%LOCALAPPDATA%\Pinvello\logs\</code> remain exclusively on your computer.</li>
-      </ul>
+        <section class="doc-card" id="en" data-doc-lang="en">
+          <h2>English Policy</h2>
+          <p>
+            Pinvello is a Windows 11 desktop sticky-notes application pinned directly to your wallpaper layer. We respect your privacy: <strong>Pinvello operates offline-first and does not collect, upload, track, or sell your personal data or note contents.</strong>
+          </p>
 
-      <h3>2. Zero Telemetry &amp; No Developer Account</h3>
-      <ul>
-        <li>Pinvello does not require creating a developer account and embeds no analytics, advertising, or behavioral tracking SDKs.</li>
-      </ul>
+          <h3>1. Local Storage &amp; Note Data</h3>
+          <ul>
+            <li>All note contents, positions, tints, visual preferences, and optional user extensions remain solely on your device inside <code>%LOCALAPPDATA%\Pinvello\</code> (<code>notes.json</code>, <code>extensions\</code>, <code>cache\</code>, and <code>logs\</code>).</li>
+            <li>Local diagnostic logs stored in <code>%LOCALAPPDATA%\Pinvello\logs\</code> remain exclusively on your computer and are never uploaded automatically.</li>
+          </ul>
 
-      <h3>3. Microsoft Store Purchases &amp; Offline Cache</h3>
-      <ul>
-        <li>In-app purchases and purchase restoration for Pinvello Pro (<code>pinvello_pro_lifetime</code>) are handled entirely by the Windows operating system via <code>Windows.Services.Store</code> and Microsoft Store. Pinvello never accesses or stores payment card details or personal Microsoft billing data.</li>
-        <li>To preserve Pro access offline, Pinvello stores a Windows DPAPI-encrypted (<code>CryptProtectData</code>, bound to your local Windows user profile) entitlement marker at <code>%LOCALAPPDATA%\Pinvello\extensions\license.bin</code>.</li>
-      </ul>
+          <h3>2. Zero Telemetry &amp; No Developer Account</h3>
+          <ul>
+            <li>Pinvello does not require creating a developer account and embeds no analytics, advertising, or behavioral tracking SDKs.</li>
+          </ul>
 
-      <h3>4. Desktop Interaction &amp; <code>runFullTrust</code> Disclosure</h3>
-      <ul>
-        <li>Pinvello uses local Windows hooks (<code>WH_MOUSE_LL</code> and <code>WH_KEYBOARD_LL</code>) strictly to hit-test, drag, marquee-select, tilt-adjust (<code>Ctrl+Alt+Arrow</code>), and recover wallpaper-layer sticky notes after <code>Win+D</code>.</li>
-        <li>All input events are evaluated transiently in local memory only; <strong>Pinvello does not log keystrokes, capture screenshots for upload, or transmit input events over any network.</strong></li>
-      </ul>
+          <h3>3. Microsoft Store Purchases &amp; Offline Cache</h3>
+          <ul>
+            <li>In-app purchases and purchase restoration for Pinvello Pro (Product ID: <code>pinvello_pro_lifetime</code>, Store ID: <code>9NNBLG3KFLB5</code>) are handled entirely by the Windows operating system via <code>Windows.Services.Store</code> and Microsoft Store. Pinvello never accesses or stores payment card details or personal Microsoft billing data.</li>
+            <li>To preserve Pro access offline, Pinvello stores a Windows DPAPI-encrypted (<code>CryptProtectData</code>, bound to your local Windows user profile) entitlement marker at <code>%LOCALAPPDATA%\Pinvello\extensions\license.bin</code> containing only the package identity, add-on Store ID, tier, and verification timestamp.</li>
+          </ul>
 
-      <h3>5. Data Removal &amp; Contact</h3>
-      <p>You may permanently erase all local notes, preferences, logs, and cached license state at any time by deleting <code>%LOCALAPPDATA%\Pinvello\</code>. For privacy questions, please reach out via our <a href="./support.html">Support Page</a>.</p>
-    </section>
+          <h3>4. Desktop Interaction &amp; <code>runFullTrust</code> Disclosure</h3>
+          <ul>
+            <li>Pinvello uses local Windows hooks (<code>WH_MOUSE_LL</code> and <code>WH_KEYBOARD_LL</code>) strictly to hit-test, drag, marquee-select, tilt-adjust (<code>Ctrl+Alt+Arrow</code>), and recover wallpaper-layer sticky notes after <code>Win+D</code>.</li>
+            <li>All input events are evaluated transiently in local memory only; <strong>Pinvello does not log keystrokes, capture screenshots for upload, or transmit input events over any network.</strong></li>
+          </ul>
+
+          <h3>5. Data Removal</h3>
+          <ul>
+            <li>You may permanently erase all local notes, preferences, logs, and cached license state at any time by deleting <code>%LOCALAPPDATA%\Pinvello\</code>.</li>
+          </ul>
+        </section>
+
+        <section class="doc-card" id="notices">
+          <h2 data-zh="第三方开源字体与软件声明" data-en="Third-Party Notices & Open-Source Fonts">第三方开源字体与软件声明</h2>
+          <p style="color:var(--ink-muted)" data-zh="Pinvello 为闭源商业软件（Copyright © 2026 iori）。应用内嵌的 6 款多语种手绘字体均按各自原版协议以 SIL Open Font License 1.1（SIL OFL-1.1）随产品分发。" data-en="Pinvello is proprietary commercial software (Copyright © 2026 iori). All 6 bundled fonts below are distributed unchanged under the SIL Open Font License, Version 1.1 (SIL OFL-1.1).">
+            Pinvello 为闭源商业软件（Copyright © 2026 iori）。应用内嵌的 6 款多语种手绘字体均按各自原版协议以 SIL Open Font License 1.1（SIL OFL-1.1）随产品分发。
+          </p>
+
+          <details class="faq-item">
+            <summary data-zh="展开查看 6 款内置 SIL OFL-1.1 开源字体与依赖清单" data-en="Expand 6 Bundled SIL OFL-1.1 Fonts & Rust Crates">展开查看 6 款内置 SIL OFL-1.1 开源字体与依赖清单</summary>
+            <ul>
+              <li><strong>LXGW WenKai (霞鹜文楷)</strong> v1.530 — Copyright: LXGW &amp; Fontworks Klee One authors (SIL OFL-1.1)</li>
+              <li><strong>LXGW Yozai (悠哉字体)</strong> v0.868 — Copyright: LXGW &amp; Y.OzFont authors (SIL OFL-1.1)</li>
+              <li><strong>Smiley Sans (得意黑)</strong> v2.0.1 — Copyright: atelierAnchor (SIL OFL-1.1)</li>
+              <li><strong>Ark Pixel Font (方舟像素字体)</strong> v2026.11.10 (12px Proportional) — Copyright: TakWolf (SIL OFL-1.1)</li>
+              <li><strong>Shantell Sans</strong> v1.011 — Copyright: Shantell Martin &amp; Arrow Type, Cyrillic by Anya Danilova (SIL OFL-1.1)</li>
+              <li><strong>Gaegu</strong> — Copyright: JIKJI SOFT / Google Fonts (SIL OFL-1.1)</li>
+            </ul>
+            <p style="margin-bottom:0;font-size:0.88rem;color:var(--ink-muted)">
+              Open-Source Rust Crates (MIT / Apache-2.0 / Zlib): <code>nsh-core</code>, <code>nsh-platform-windows</code>, <code>windows</code>, <code>windows-core</code>, <code>windows-future</code>, <code>windows-collections</code>, <code>serde</code>, <code>serde_json</code>, <code>chrono</code>, <code>flate2</code>, <code>image</code>.
+            </p>
+          </details>
+        </section>
+      </div>
+    </div>
   </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Pinvello</strong> · <span data-i18n="footer.tagline">Windows 11 桌面壁纸层拟物便笺 · 开发者 iori · 开源字体兼容闭源商业软件</span>
+      </div>
+      <div class="footer-links">
+        <a href="./index.html" data-i18n="footer.home">产品首页</a>
+        <a href="./privacy.html" data-i18n="footer.privacy">隐私政策</a>
+        <a href="./support.html" data-i18n="footer.support">支持中心</a>
+        <a href="https://github.com/botmiao/pinvello-docs/issues" target="_blank" rel="noopener" data-i18n="footer.issues">GitHub 反馈</a>
+        <a href="https://apps.microsoft.com/detail/9NRGMTLZ4JXN" target="_blank" rel="noopener" data-i18n="footer.store">Microsoft Store</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { initI18n } from './assets/js/i18n.js';
+    initI18n();
+  </script>
 </body>
 </html>

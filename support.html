@@ -3,117 +3,306 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pinvello 支持与帮助 / Support &amp; FAQ</title>
-  <style>
-    :root {
-      --bg: #faf6ee;
-      --card: #fffdf8;
-      --border: #e4d8c5;
-      --ink: #332419;
-      --muted: #5f4e3d;
-      --btn: #5c432e;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: "Segoe UI", "Microsoft YaHei UI", system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      line-height: 1.7;
-    }
-    main {
-      max-width: 860px;
-      margin: 36px auto;
-      padding: 0 20px 40px;
-    }
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 18px;
-      font-size: 14px;
-    }
-    .nav a { color: var(--btn); text-decoration: none; font-weight: 600; margin-right: 14px; }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 28px 32px;
-      box-shadow: 0 8px 24px rgba(51, 36, 25, 0.05);
-      margin-bottom: 20px;
-    }
-    h1 { margin: 0 0 6px; font-size: 26px; }
-    h2 { margin: 0 0 12px; font-size: 21px; color: var(--btn); }
-    h3 { margin: 18px 0 6px; font-size: 16px; color: var(--ink); }
-    p, li { color: var(--muted); }
-    code {
-      background: #f3ead9;
-      padding: 2px 6px;
-      border-radius: 5px;
-      font-size: 0.92em;
-    }
-  </style>
+  <title
+    data-title-zh="Pinvello 支持与帮助中心 / Support & FAQ"
+    data-title-en="Support & FAQ — Pinvello"
+  >Pinvello 支持与帮助中心 / Support & FAQ</title>
+  <meta name="description" content="Pinvello Windows 11 桌面便笺支持中心：快捷操作表、恢复 Pinvello Pro 购买、本地数据备份与扩展包使用教程。" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/apple-touch-icon.png" />
+  <link rel="stylesheet" href="./assets/css/tokens.css" />
+  <link rel="stylesheet" href="./assets/css/main.css" />
 </head>
 <body>
-  <main>
-    <div class="nav">
-      <div>
-        <a href="./index.html">&larr; Pinvello 首页 / Home</a>
-        <a href="./privacy.html">隐私政策 / Privacy</a>
-      </div>
-      <div>
-        <a href="#zh">中文帮助</a>
-        <a href="#en">English Help</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./index.html">
+        <img src="./assets/img/logo-128.webp" width="34" height="34" alt="Pinvello Logo" />
+        <span>Pinvello</span>
+        <span class="version-badge">v0.2.0</span>
+      </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="主导航">
+        <ul class="nav-links">
+          <li><a href="./index.html" data-i18n="nav.overview">功能与体验</a></li>
+          <li><a href="./privacy.html" data-i18n="nav.privacy">隐私政策</a></li>
+          <li><a class="is-current" href="./support.html" data-i18n="nav.support">支持中心</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" class="is-active" data-lang-btn="zh" aria-pressed="true">中文</button>
+          <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+        </div>
+        <a
+          class="btn btn-primary btn-sm btn-store-nav"
+          href="https://apps.microsoft.com/detail/9NRGMTLZ4JXN"
+          target="_blank"
+          rel="noopener"
+          data-i18n="nav.store"
+        >Microsoft Store 获取</a>
+        <button
+          type="button"
+          class="mobile-toggle"
+          id="mobile-nav-toggle"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >☰</button>
       </div>
     </div>
+  </header>
 
-    <section class="card">
-      <h1>Pinvello 支持与帮助 / Support &amp; FAQ</h1>
-      <p>遇到问题或有建议？请在 <a href="https://github.com/botmiao/pinvello-docs/issues">GitHub Support Issues</a> 提交反馈。</p>
+  <main class="container" data-doc-page="support" data-doc-view="both">
+    <section class="doc-hero">
+      <a class="pill-btn" href="./index.html" data-i18n="privacy.back">← 返回产品官网</a>
+      <h1 data-i18n="support.hero.title">支持中心、快捷键与常见问题</h1>
+      <p style="margin:0;color:var(--ink-muted)" data-i18n="support.hero.sub">
+        快速上手桌面操作、恢复 Pinvello Pro 买断权益、备份本地数据或提交问题单
+      </p>
+
+      <div class="doc-summary-grid">
+        <article class="doc-sum-card">
+          <h3 data-i18n="support.card1.t">下载与更新</h3>
+          <p data-i18n="support.card1.d">通过 Microsoft Store 获取 Windows 11 官方签名的最新版 Pinvello。</p>
+          <a href="https://apps.microsoft.com/detail/9NRGMTLZ4JXN" target="_blank" rel="noopener" data-i18n="support.card1.a">打开商店页面 →</a>
+        </article>
+        <article class="doc-sum-card">
+          <h3 data-i18n="support.card2.t">恢复 Pro 购买</h3>
+          <p data-i18n="support.card2.d">重装系统或换新电脑后，在商店登录同账号并在「偏好设置」点恢复购买。</p>
+          <a href="#zh-faq" data-i18n="support.card2.a">查看详细步骤 ↓</a>
+        </article>
+        <article class="doc-sum-card">
+          <h3 data-i18n="support.card3.t">反馈问题与建议</h3>
+          <p data-i18n="support.card3.d">附带 %LOCALAPPDATA%\Pinvello\logs\ 日志与系统版本，在 GitHub Issues 提交。</p>
+          <a href="https://github.com/botmiao/pinvello-docs/issues" target="_blank" rel="noopener" data-i18n="support.card3.a">前往 Issues 提问 →</a>
+        </article>
+        <article class="doc-sum-card">
+          <h3 data-i18n="support.card4.t">阅读隐私声明</h3>
+          <p data-i18n="support.card4.d">了解离线存储位置、DPAPI 离线授权缓存与桌面钩子工作方式。</p>
+          <a href="./privacy.html" data-i18n="support.card4.a">查看隐私政策 →</a>
+        </article>
+      </div>
+
+      <div class="doc-view-bar">
+        <div class="doc-view-pills" role="group" aria-label="Document view language">
+          <button type="button" class="pill-btn is-active" data-doc-view-btn="both" aria-pressed="true" data-i18n="doc.view.both">双语对照</button>
+          <button type="button" class="pill-btn" data-doc-view-btn="zh" aria-pressed="false" data-i18n="doc.view.zh">仅看中文</button>
+          <button type="button" class="pill-btn" data-doc-view-btn="en" aria-pressed="false" data-i18n="doc.view.en">English Only</button>
+        </div>
+        <div style="font-size:0.84rem;color:var(--ink-muted)">
+          Store ID: <code>9NRGMTLZ4JXN</code>
+        </div>
+      </div>
     </section>
 
-    <section class="card" id="zh">
-      <h2>中文常见问题</h2>
+    <div class="doc-layout">
+      <aside class="doc-toc" aria-label="目录">
+        <h2 data-i18n="privacy.toc.title">目录导航</h2>
+        <ul>
+          <li data-doc-lang="zh"><a href="#zh" data-zh="中文快捷速查与 FAQ" data-en="中文指南 (#zh)">中文快捷速查与 FAQ</a></li>
+          <li data-doc-lang="zh"><a href="#zh-shortcuts" data-zh="桌面操作与快捷键" data-en="中文快捷键表">桌面操作与快捷键</a></li>
+          <li data-doc-lang="zh"><a href="#zh-faq" data-zh="中文常见问题" data-en="中文常见问题">中文常见问题</a></li>
+          <li data-doc-lang="en"><a href="#en">English Support &amp; FAQ</a></li>
+          <li data-doc-lang="en"><a href="#en-shortcuts">Shortcuts Reference</a></li>
+          <li data-doc-lang="en"><a href="#en-faq">English FAQ</a></li>
+        </ul>
+      </aside>
 
-      <h3>1. 免费版和 Pinvello Pro 一次性买断有什么区别？</h3>
-      <ul>
-        <li><strong>免费核心版</strong>：桌面最多同时保留 3 张便笺；全部 10 种界面语言、霞鹜文楷与全部本机系统字体、随壁纸自适应 / 经典暖阳主题、撕下飘落 / 柔和淡出 / 无动画与拟真音效免费可用；偏好设置内可免费预览全部 8 种删除动画与 6 款内置字体字形。</li>
-        <li><strong>Pinvello Pro（终身买断，无订阅）</strong>：解锁无限便笺数量、全部 6 款内置开源手绘/设计字体、全部 6 套主题、手撕/打孔/横线/方格纸张、进阶固定件、全部 8 种删除动画保存、自定义动画时长（150–3000 ms）、一键自动排列与 <code>doodles/</code>、<code>fonts/</code>、<code>themes/</code> 扩展包。</li>
-      </ul>
+      <div class="doc-content">
+        <!-- Chinese Support -->
+        <section class="doc-card" id="zh" data-doc-lang="zh">
+          <h2>中文支持与 FAQ</h2>
 
-      <h3>2. 更换设备或重装系统后如何恢复 Pro 买断权限？</h3>
-      <p>请确保 Windows 中的 Microsoft Store 已登录购买时的同一 Microsoft 账号，打开 Pinvello <strong>偏好设置</strong> 顶部横幅，点击<strong>「恢复购买」</strong>即可自动同步授权。</p>
+          <h3 id="zh-shortcuts">常用操作与快捷键速查</h3>
+          <div class="table-wrap">
+            <table class="shortcut-table">
+              <thead>
+                <tr>
+                  <th>动作</th>
+                  <th>触发方式</th>
+                  <th>说明</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>新建便笺</strong></td>
+                  <td><kbd>Win</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd> / 左键单击托盘图标</td>
+                  <td>按「全部随机」或「用户预设」创建并直接聚焦编辑</td>
+                </tr>
+                <tr>
+                  <td><strong>进入原位编辑</strong></td>
+                  <td>单击桌面上任意便笺内部</td>
+                  <td>保持原图层顺序，回正水平方便输入中文；按 <kbd>Esc</kbd> 或失焦保存</td>
+                </tr>
+                <tr>
+                  <td><strong>微调微倾角</strong></td>
+                  <td>悬停或编辑时按 <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>← / → / 0</kbd></td>
+                  <td>按 <code>0.5°</code> 步进调节手贴微倾角，<code>0</code> 一键水平归零</td>
+                </tr>
+                <tr>
+                  <td><strong>多选与批量删除</strong></td>
+                  <td>桌面空白处拖拽框选，或 <kbd>Ctrl</kbd> + 单击，按 <kbd>Delete</kbd></td>
+                  <td>按 <kbd>Esc</kbd> 取消多选；删除后进入 10 条托盘撤销栈</td>
+                </tr>
+                <tr>
+                  <td><strong>调节大小与图层</strong></td>
+                  <td>编辑时拖右/下/右下手柄；右键菜单「图层顺序」「贴合当前内容高度」</td>
+                  <td>支持 <code>180×140</code> 至 <code>720×680</code> DIP 无级调整</td>
+                </tr>
+                <tr>
+                  <td><strong>锁定位置 / 自动排列</strong></td>
+                  <td>右键「锁定便笺位置」 / 托盘右键「自动排列」</td>
+                  <td>自动排列（Pro）避让左侧桌面图标与已锁定便笺</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-      <h3>3. 便笺数据存放在哪里？如何备份或迁移？</h3>
-      <p>全部本地数据保存在 <code>%LOCALAPPDATA%\Pinvello\notes.json</code>。直接备份该文件及同目录下的 <code>extensions\</code> 即可完整保留所有便笺内容与配置。</p>
+          <h3 id="zh-faq">常见问题解答</h3>
 
-      <h3>4. 如何快速调节便笺倾角与清理桌面排版？</h3>
-      <ul>
-        <li>鼠标悬停或单击进入编辑便笺时，按 <code>Ctrl + Alt + ← / →</code> 按 <code>0.5°</code> 步进调节倾角，<code>Ctrl + Alt + 0</code> 水平归零。</li>
-        <li>按 <code>Win + D</code> 显示桌面后，便笺依然留在桌面图标下方、壁纸之上。</li>
-      </ul>
-    </section>
+          <details class="faq-item" open>
+            <summary>1. 为什么按下 Win+D 显示桌面时，Pinvello 便笺不会消失？</summary>
+            <p>
+              Pinvello 并非常规顶层悬浮窗，而是直接挂载到 Windows 11 桌面壁纸容器（<code>Progman</code> / <code>SHELLDLL_DefView</code> 下方），位于壁纸之上、桌面图标之下。因此无论是切换窗口、按下 <kbd>Win</kbd> + <kbd>D</kbd>，还是 <code>explorer.exe</code> 重启，便笺都能稳稳停留在桌面层。
+            </p>
+          </details>
 
-    <section class="card" id="en">
-      <h2>English Support &amp; FAQ</h2>
+          <details class="faq-item">
+            <summary>2. 免费版与 Pinvello Pro（一次性买断）有什么区别？</summary>
+            <ul>
+              <li><strong>免费版</strong>：支持桌面同时保留最多 <strong>3 张</strong>活跃便笺（超出 3 张的旧便笺仍可读可编辑可删除）、全部 10 种界面语言、霞鹜文楷与全部系统字体、随壁纸自适应 / 经典暖阳主题、微翘卷角纸张、默认和纸胶带 / 图钉、撕下飘落 / 柔和淡出 / 无动画与拟真音效，以及偏好设置内无限试玩全部 Pro 删除特效与内置手绘字体。</li>
+              <li><strong>Pinvello Pro</strong>：一次性买断终身有效（无订阅），解锁无限数量便笺、全部 6 款内置 SIL OFL 字体、全部 6 套主题、手撕毛边 / 打孔 / 横线 / 方格点阵纸张、全部 8 种固定件、全部 8 种删除动画与自定义时长（<code>150–3000 ms</code>）、一键自动排列，以及 <code>doodles/</code>、<code>fonts/</code>、<code>themes/</code> 扩展包加载。</li>
+            </ul>
+          </details>
 
-      <h3>1. What is included in Free vs. Pinvello Pro?</h3>
-      <ul>
-        <li><strong>Free Tier</strong>: Up to 3 active desktop sticky notes at once, all 10 UI languages, LXGW WenKai plus all installed Windows system fonts, Adaptive &amp; Classic themes, Peel Drop / Fade Out / None animations with procedural Foley audio, and unrestricted live previews of all Pro animations &amp; curated fonts inside Preferences.</li>
-        <li><strong>Pinvello Pro (One-Time Lifetime Purchase)</strong>: Unlimited notes, all 6 curated SIL OFL fonts, all 6 themes, Torn/Perforated/Ruled/Grid paper styles, extended fasteners (Striped Tape, Pearl Pin, Paperclip, Binder Clip, Wall Hook), all 8 delete effects, custom durations (150–3000 ms), Auto-Arrange Notes, and external <code>doodles/</code>, <code>fonts/</code>, <code>themes/</code> extensions.</li>
-      </ul>
+          <details class="faq-item">
+            <summary>3. 重装系统或更换电脑后，如何恢复 Pinvello Pro 买断权益？</summary>
+            <p>
+              请先确认 Windows 的 Microsoft Store 应用已登录您当初购买时使用的同一 Microsoft 账号，然后打开 Pinvello <strong>偏好设置</strong> 顶部横幅，点击<strong>「恢复购买」</strong>即可自动同步授权并写入本地 DPAPI 离线缓存。
+            </p>
+          </details>
 
-      <h3>2. How do I restore my Pro purchase on a new PC or after reinstalling Windows?</h3>
-      <p>Sign in to the Microsoft Store app with the Microsoft account you used to purchase Pinvello Pro, then open <strong>Pinvello Preferences</strong> and click <strong>Restore Purchase</strong>.</p>
+          <details class="faq-item">
+            <summary>4. 便笺数据存放在哪里？如何备份、迁移或彻底删除？</summary>
+            <p>
+              全部本地数据默认保存于 <code>%LOCALAPPDATA%\Pinvello\</code>（主文件为 <code>notes.json</code>，连同 <code>extensions\</code> 与 <code>logs\</code>）。备份只需复制该文件夹；如需彻底清除所有数据，退出 Pinvello 后删除 <code>%LOCALAPPDATA%\Pinvello\</code> 即可。
+            </p>
+          </details>
 
-      <h3>3. Where are my sticky notes stored?</h3>
-      <p>All notes and local preferences are saved offline inside <code>%LOCALAPPDATA%\Pinvello\notes.json</code>. Back up that file together with <code>extensions\</code> anytime.</p>
+          <details class="faq-item">
+            <summary>5. 如何使用自定义角落插画、主题色卡与外部字体？</summary>
+            <ul>
+              <li>在偏好设置底部点击一键打开扩展包目录（对应 <code>%LOCALAPPDATA%\Pinvello\</code> 下的 <code>doodles\</code>、<code>themes\</code>、<code>fonts\</code>）。</li>
+              <li><strong>角落插画</strong>：放入任意 <code>.svg</code> 文件（如 <code>coffee-咖啡-拿铁.svg</code>），便笺处于「智能匹配」时写到关键词即自动匹配。</li>
+              <li><strong>主题色卡</strong>：新建 UTF-8 <code>.json</code> 文件填入 <code>name</code> 与 1–5 组 <code>[纸张色, 胶带色]</code> 十六进制色值。</li>
+              <li><strong>外部字体</strong>：放入 <code>.ttf</code> 或 <code>.otf</code> 文件即可在字体搜索框带文件夹徽标处选用。</li>
+            </ul>
+          </details>
+        </section>
 
-      <h3>4. Need further assistance?</h3>
-      <p>Please open a ticket on our public support tracker: <a href="https://github.com/botmiao/pinvello-docs/issues">https://github.com/botmiao/pinvello-docs/issues</a>.</p>
-    </section>
+        <!-- English Support -->
+        <section class="doc-card" id="en" data-doc-lang="en">
+          <h2>English Support &amp; FAQ</h2>
+
+          <h3 id="en-shortcuts">Shortcuts &amp; Desktop Controls</h3>
+          <div class="table-wrap">
+            <table class="shortcut-table">
+              <thead>
+                <tr>
+                  <th>Action</th>
+                  <th>Shortcut / Gesture</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>New Sticky Note</strong></td>
+                  <td><kbd>Win</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd> / Left-click tray icon</td>
+                  <td>Creates a note using Random or My Preset defaults and focuses editor</td>
+                </tr>
+                <tr>
+                  <td><strong>Edit In Place</strong></td>
+                  <td>Click inside any sticky note paper</td>
+                  <td>Preserves layer order, straightens temporarily, saves on <kbd>Esc</kbd> or blur</td>
+                </tr>
+                <tr>
+                  <td><strong>Adjust Tilt</strong></td>
+                  <td>Hover or edit + <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>← / → / 0</kbd></td>
+                  <td>Steps by <code>0.5°</code>; <code>0</code> resets note horizontally</td>
+                </tr>
+                <tr>
+                  <td><strong>Multi-Select &amp; Delete</strong></td>
+                  <td>Marquee drag on empty desktop or <kbd>Ctrl</kbd> + Click, then <kbd>Delete</kbd></td>
+                  <td><kbd>Esc</kbd> clears selection; deleted notes enter 10-slot undo stack</td>
+                </tr>
+                <tr>
+                  <td><strong>Resize &amp; Z-Order</strong></td>
+                  <td>Drag right/bottom/corner handle in edit mode; right-click Layer Order</td>
+                  <td>Supports <code>180×140</code> to <code>720×680</code> DIP plus Fit Height</td>
+                </tr>
+                <tr>
+                  <td><strong>Lock / Auto-Arrange</strong></td>
+                  <td>Right-click Lock Position / Tray → Auto-Arrange Notes</td>
+                  <td>Auto-Arrange (Pro) flows cleanly around desktop icons and pinned notes</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 id="en-faq">Frequently Asked Questions</h3>
+
+          <details class="faq-item" open>
+            <summary>1. How does Pinvello survive Win+D (Show Desktop)?</summary>
+            <p>
+              Instead of floating as a normal top-level window, Pinvello hosts its DirectComposition visual tree directly inside Windows 11's desktop host (above the wallpaper and below <code>SHELLDLL_DefView</code> desktop icons). Minimizing windows or pressing <kbd>Win</kbd> + <kbd>D</kbd> leaves your notes undisturbed on the wallpaper layer.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>2. What is included in Free vs. Pinvello Pro?</summary>
+            <ul>
+              <li><strong>Free Tier</strong>: Up to 3 active desktop notes simultaneously (existing >3 notes always remain readable &amp; editable), all 10 UI languages, LXGW WenKai plus all Windows system fonts, Adaptive &amp; Classic themes, Curled paper, Auto tape/pushpin, Peel Drop / Fade Out / None animations with Foley audio, and unrestricted live previews of all Pro effects &amp; fonts inside Preferences.</li>
+              <li><strong>Pinvello Pro (One-Time Lifetime Purchase)</strong>: Unlimited notes, all 6 bundled SIL OFL fonts, all 6 themes, Torn/Perforated/Ruled/Grid paper styles, all 8 fastener styles, all 8 delete options with custom <code>150–3000 ms</code> timing, Auto-Arrange Notes, and external <code>doodles/</code>, <code>fonts/</code>, <code>themes/</code> extensions.</li>
+            </ul>
+          </details>
+
+          <details class="faq-item">
+            <summary>3. How do I restore my Pro purchase on a new PC or after reinstalling Windows?</summary>
+            <p>
+              Sign in to the Microsoft Store app with the same Microsoft account used for your original purchase, then open <strong>Pinvello Preferences</strong> and click <strong>Restore Purchase</strong>.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>4. Where are notes stored, and how do I back up or report a bug?</summary>
+            <p>
+              All local data lives in <code>%LOCALAPPDATA%\Pinvello\</code> (<code>notes.json</code>, <code>extensions\</code>, and <code>logs\</code>). Back up that folder anytime. For technical issues, please open a ticket at <a href="https://github.com/botmiao/pinvello-docs/issues" target="_blank" rel="noopener">GitHub Issues</a> with your Windows 11 build number and relevant log files.
+            </p>
+          </details>
+        </section>
+      </div>
+    </div>
   </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Pinvello</strong> · <span data-i18n="footer.tagline">Windows 11 桌面壁纸层拟物便笺 · 开发者 iori · 开源字体兼容闭源商业软件</span>
+      </div>
+      <div class="footer-links">
+        <a href="./index.html" data-i18n="footer.home">产品首页</a>
+        <a href="./privacy.html" data-i18n="footer.privacy">隐私政策</a>
+        <a href="./support.html" data-i18n="footer.support">支持中心</a>
+        <a href="https://github.com/botmiao/pinvello-docs/issues" target="_blank" rel="noopener" data-i18n="footer.issues">GitHub 反馈</a>
+        <a href="https://apps.microsoft.com/detail/9NRGMTLZ4JXN" target="_blank" rel="noopener" data-i18n="footer.store">Microsoft Store</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { initI18n } from './assets/js/i18n.js';
+    initI18n();
+  </script>
 </body>
 </html>

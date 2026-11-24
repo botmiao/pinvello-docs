@@ -1,0 +1,61 @@
+/* Pinvello Design Tokens — extracted from crates/pinvello/src/{palette,settings,ui}.rs */
+:root {
+  /* Paper & Warm Craft Surfaces */
+  --bg: #faf6ee;
+  --surface: #fffdf9;
+  --surface-warm: #f7f1e4;
+  --surface-tint: #f2e8d5;
+  --surface-subtle: #f5efe2;
+  --border: #e4d8c5;
+  --border-strong: #d3c2a8;
+
+  /* Ink & Typography */
+  --ink: #332419;
+  --ink-body: #4a3422;
+  --ink-muted: #7a6855;
+  --ink-faint: #988672;
+
+  /* Brand & Interactive Accents */
+  --accent: #5c432e;
+  --accent-hover: #4b3523;
+  --accent-ink: #fffdf8;
+  --pin-sage: #6e8b63;
+  --pin-sage-soft: #e9f1e5;
+  --pin-sage-border: #b8ccb0;
+
+  /* Pro Lifetime Tier Accent */
+  --pro-gold: #dfb45a;
+  --pro-bg: #f6ebd3;
+  --pro-border: #ba8e36;
+  --pro-ink: #3a240b;
+
+  /* Semantic @time Capsule Tokens */
+  --due-soon-bg: rgba(230, 126, 34, 0.15);
+  --due-soon-ink: #d35400;
+  --due-over-bg: rgba(231, 76, 60, 0.15);
+  --due-over-ink: #c0392b;
+  --due-normal-bg: rgba(74, 52, 34, 0.08);
+  --due-normal-ink: rgba(74, 52, 34, 0.72);
+  --due-done-bg: rgba(0, 0, 0, 0.05);
+  --due-done-ink: rgba(74, 52, 34, 0.45);
+
+  /* Typography Stacks (zero heavy CJK font downloads) */
+  --font-sans: "Segoe UI Variable", "Segoe UI", "Microsoft YaHei UI", "PingFang SC", "Noto Sans CJK SC", system-ui, -apple-system, sans-serif;
+  --font-hand: "LXGW WenKai", "Kaiti SC", "KaiTi", "STKaiti", "Segoe Print", "Bradley Hand", "Segoe UI", cursive, sans-serif;
+  --font-mono: "Cascadia Code", "Consolas", "SFMono-Regular", Menlo, ui-monospace, monospace;
+
+  /* Elevation & Radii */
+  --shadow-xs: 0 2px 6px rgba(51, 36, 25, 0.05);
+  --shadow-sm: 0 8px 22px rgba(51, 36, 25, 0.06);
+  --shadow-md: 0 14px 36px rgba(51, 36, 25, 0.09);
+  --shadow-lg: 0 24px 60px rgba(42, 28, 16, 0.14);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  --container-max: 1180px;
+  --header-h: 68px;
+}

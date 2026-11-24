@@ -3,93 +3,526 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pinvello — Windows 11 桌面壁纸层便笺 / Desktop Sticky Notes</title>
-  <style>
-    :root {
-      --bg: #faf6ee;
-      --card: #fffdf8;
-      --border: #e4d8c5;
-      --accent: #c29b4e;
-      --ink: #332419;
-      --muted: #6f5d4b;
-      --btn: #5c432e;
-      --btn-txt: #fffdf8;
+  <title
+    data-title-zh="Pinvello — Windows 11 桌面壁纸层拟物便笺"
+    data-title-en="Pinvello — Windows 11 Wallpaper-Layer Sticky Notes"
+  >Pinvello — Windows 11 桌面壁纸层拟物便笺</title>
+  <meta name="description" content="Pinvello 是一款运行在 Windows 11 桌面壁纸层之上、桌面图标之下的拟物便笺应用。无惧 Win+D 与资源管理器重启，支持程序化三维翘角纸感、@time 时间胶囊、6 种物理删除动效与 10 种界面语言，100% 离线隐私优先。" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/apple-touch-icon.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Pinvello — Windows 11 桌面壁纸层拟物便笺" />
+  <meta property="og:description" content="贴在壁纸之上、图标之下；无惧 Win+D 的手账风桌面便笺，100% 离线优先、零遥测。" />
+  <meta property="og:image" content="./assets/img/og-cover-zh.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="stylesheet" href="./assets/css/tokens.css" />
+  <link rel="stylesheet" href="./assets/css/main.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Pinvello",
+    "operatingSystem": "Windows 11",
+    "applicationCategory": "ProductivityApplication",
+    "softwareVersion": "0.2.0",
+    "author": {
+      "@type": "Person",
+      "name": "iori"
+    },
+    "downloadUrl": "https://apps.microsoft.com/detail/9NRGMTLZ4JXN",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
     }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: "Segoe UI", "Microsoft YaHei UI", system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      line-height: 1.65;
-    }
-    main {
-      max-width: 860px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 28px 30px;
-      box-shadow: 0 8px 24px rgba(51, 36, 25, 0.06);
-      margin-bottom: 20px;
-    }
-    h1 { margin: 0 0 8px; font-size: 28px; }
-    h2 { margin: 22px 0 8px; font-size: 19px; color: var(--btn); }
-    p, li { color: var(--muted); }
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 20px;
-    }
-    .btn {
-      display: inline-block;
-      padding: 10px 18px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      border: 1px solid var(--border);
-      color: var(--ink);
-      background: #f4ecdc;
-    }
-    .btn-primary {
-      background: var(--btn);
-      border-color: #4a3422;
-      color: var(--btn-txt);
-    }
-    footer {
-      text-align: center;
-      font-size: 13px;
-      color: #8b7967;
-      margin-top: 24px;
-    }
-  </style>
+  }
+  </script>
 </head>
 <body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./index.html">
+        <img src="./assets/img/logo-128.webp" width="34" height="34" alt="Pinvello Logo" />
+        <span>Pinvello</span>
+        <span class="version-badge">v0.2.0</span>
+      </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="主导航">
+        <ul class="nav-links">
+          <li><a class="is-current" href="./index.html" data-i18n="nav.overview">功能与体验</a></li>
+          <li><a href="./privacy.html" data-i18n="nav.privacy">隐私政策</a></li>
+          <li><a href="./support.html" data-i18n="nav.support">支持中心</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" class="is-active" data-lang-btn="zh" aria-pressed="true">中文</button>
+          <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+        </div>
+        <a
+          class="btn btn-primary btn-sm btn-store-nav"
+          href="https://apps.microsoft.com/detail/9NRGMTLZ4JXN"
+          target="_blank"
+          rel="noopener"
+          data-i18n="nav.store"
+        >Microsoft Store 获取</a>
+        <button
+          type="button"
+          class="mobile-toggle"
+          id="mobile-nav-toggle"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >☰</button>
+      </div>
+    </div>
+  </header>
+
   <main>
-    <section class="card">
-      <h1>Pinvello</h1>
-      <p>Windows 11 桌面壁纸层拟物便笺应用 — 驻留壁纸之上、图标之下，无惧 Win+D 与资源管理器重启。</p>
-      <p>Tactile Windows 11 sticky notes pinned directly onto your desktop wallpaper layer, behind desktop icons and resilient across Win+D.</p>
-      <div class="actions">
-        <a class="btn btn-primary" href="./privacy.html">隐私政策 / Privacy Policy</a>
-        <a class="btn" href="./support.html">支持与帮助 / Support</a>
-        <a class="btn" href="https://github.com/botmiao/pinvello-docs/issues">提交反馈 / Report Issue</a>
+    <!-- Hero + Interactive Windows 11 Desktop Sandbox -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            <span data-i18n="hero.eyebrow">Windows 11 壁纸层拟物便笺 · v0.2.0</span>
+          </div>
+          <h1>
+            <span data-i18n="hero.title.a">把重要的小事，</span><br />
+            <span class="hl" data-i18n="hero.title.b">真正贴在桌面上</span>
+          </h1>
+          <p class="hero-lead" data-i18n="hero.lead">
+            驻留于桌面壁纸之上、图标之下——不是悬浮在窗口顶层的遮挡物。无惧 Win+D 显示桌面与资源管理器重启，自带 64 位随机三维翘角纸感与物理拟真销毁动效。
+          </p>
+
+          <div class="hero-actions">
+            <a
+              class="btn btn-primary"
+              href="https://apps.microsoft.com/detail/9NRGMTLZ4JXN"
+              target="_blank"
+              rel="noopener"
+              data-i18n="hero.cta.primary"
+            >从 Microsoft Store 获取</a>
+            <a class="btn" href="#sandbox" data-i18n="hero.cta.try">先在下方试玩桌面沙盒</a>
+          </div>
+          <div class="hero-sublinks">
+            <a href="ms-windows-store://pdp/?productid=9NRGMTLZ4JXN" data-i18n="hero.cta.app">直唤 Windows 商店应用</a>
+            <span> · </span>
+            <a href="./privacy.html" data-i18n="nav.privacy">隐私政策</a>
+          </div>
+
+          <div class="trust-chips">
+            <span class="trust-chip" data-i18n="hero.badge.win11">Windows 11 原生单进程</span>
+            <span class="trust-chip" data-i18n="hero.badge.offline">100% 离线优先</span>
+            <span class="trust-chip" data-i18n="hero.badge.telemetry">零遥测 / 无账号</span>
+            <span class="trust-chip" data-i18n="hero.badge.i18n">10 语种自适应</span>
+          </div>
+        </div>
+
+        <section class="sandbox-card" id="sandbox" aria-label="Windows 11 桌面互动沙盒">
+          <div class="sandbox-top">
+            <strong data-i18n="sandbox.title">互动桌面沙盒 · 动手试试手感</strong>
+            <span data-i18n="sandbox.hint">可直接拖拽便笺、勾选待办，或点右上角演示 Win+D</span>
+          </div>
+
+          <div class="sandbox-stage" id="sandbox-stage">
+            <!-- Coastal horizon backdrop matching Pinvello showcase mood -->
+            <svg class="sandbox-wallpaper-art" viewBox="0 0 640 420" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="sb_sea_grad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="rgba(255,222,179,0.22)" />
+                  <stop offset="56%" stop-color="rgba(130,175,212,0.12)" />
+                  <stop offset="100%" stop-color="rgba(26,48,66,0.52)" />
+                </linearGradient>
+              </defs>
+              <rect width="640" height="420" fill="url(#sb_sea_grad)" />
+              <path d="M 0 265 Q 155 245, 290 258 T 640 248 L 640 420 L 0 420 Z" fill="rgba(29, 54, 72, 0.42)" />
+              <path d="M 210 260 C 245 190, 320 170, 360 218 C 388 250, 440 256, 490 268 L 210 268 Z" fill="rgba(72, 58, 46, 0.34)" />
+            </svg>
+
+            <!-- Sticky Notes Layer (z-index: 2, below desktop icons) -->
+            <div class="sandbox-notes-layer" id="sandbox-notes-layer"></div>
+
+            <!-- Desktop Icons Layer (z-index: 4, always above notes) -->
+            <div class="sandbox-icons-layer" aria-hidden="true">
+              <div class="win-icon">
+                <div class="win-icon-glyph">🗑</div>
+                <span data-i18n="sandbox.icon.bin">回收站</span>
+              </div>
+              <div class="win-icon">
+                <div class="win-icon-glyph">💻</div>
+                <span data-i18n="sandbox.icon.pc">此电脑</span>
+              </div>
+            </div>
+
+            <!-- Simulated Foreground Window for Win+D demo (z-index: 6) -->
+            <div class="sandbox-mock-window" id="sandbox-mock-window" aria-hidden="true">
+              <div class="mock-titlebar">
+                <span data-i18n="sandbox.mock.title">正在工作 — 浏览器 / 文档窗口</span>
+                <button type="button" class="mock-min-btn" id="sandbox-mock-min" title="Minimize">─</button>
+              </div>
+              <div class="mock-body">
+                <p style="margin:0" data-i18n="sandbox.mock.body">
+                  普通窗口在顶层工作；按下 Win+D 最小化所有窗口后，Pinvello 依然静静贴在壁纸上。
+                </p>
+                <div class="mock-skeleton">
+                  <span style="width:82%"></span>
+                  <span style="width:65%"></span>
+                  <span style="width:90%"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Windows 11 Frosted Taskbar (z-index: 8) -->
+            <div class="sandbox-taskbar">
+              <div class="tb-dots" aria-hidden="true">
+                <span class="tb-app tb-app--win"></span>
+                <span class="tb-app"></span>
+                <span class="tb-app"></span>
+                <span class="tb-app tb-app--pinvello">
+                  <img src="./assets/img/favicon-32.png" width="22" height="22" alt="" />
+                </span>
+              </div>
+              <button
+                type="button"
+                class="tb-show-desktop"
+                id="sandbox-show-desktop"
+                title="Win+D / Show Desktop"
+                aria-label="Show Desktop Win+D"
+              ></button>
+            </div>
+          </div>
+
+          <div class="sandbox-controls">
+            <div class="swatch-row">
+              <span class="ctrl-label" data-i18n="sandbox.theme">主题色卡</span>
+              <div id="sandbox-theme-swatches" class="swatch-row"></div>
+            </div>
+
+            <div class="sandbox-tools-row">
+              <div class="select-group">
+                <label>
+                  <span data-i18n="sandbox.paper">纸张款式</span>
+                  <select id="sandbox-paper-select"></select>
+                </label>
+                <label>
+                  <span data-i18n="sandbox.fastener">固定件</span>
+                  <select id="sandbox-fastener-select"></select>
+                </label>
+              </div>
+
+              <div class="sandbox-btns">
+                <button type="button" class="pill-btn" id="sandbox-wind-btn" data-i18n="sandbox.wind.open">打开前景窗口</button>
+                <button type="button" class="pill-btn" id="sandbox-reset-btn" data-i18n="sandbox.reset">重置排版</button>
+              </div>
+            </div>
+
+            <p class="sandbox-status" id="sandbox-status" role="status"></p>
+          </div>
+        </section>
       </div>
     </section>
 
-    <section class="card">
-      <h2>官方页面索引 / Documentation Links</h2>
-      <ul>
-        <li><a href="./privacy.html">Pinvello 隐私政策 / Privacy Policy</a> — 离线优先存储、零遥测与 Microsoft Store 内购说明。</li>
-        <li><a href="./support.html">Pinvello 常见问题与支持 / Support & FAQ</a> — 免费版与 Pinvello Pro、时间胶囊、恢复购买与本地数据管理。</li>
-      </ul>
+    <!-- Real Windows 11 Showcase -->
+    <section class="section" id="showcase">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker" data-i18n="showcase.eyebrow">REAL WINDOWS 11 CAPTURE</div>
+          <h2 data-i18n="showcase.title">不是网页概念图，而是 Windows 11 原生 Direct2D 渲染实景</h2>
+          <p data-i18n="showcase.desc">
+            基于 Rust 与 DirectComposition 预乘 Alpha 渲染，边缘柔和立体，支持 PerMonitorV2 多屏高分屏。点击图片可放大查看细节。
+          </p>
+        </div>
+
+        <div class="showcase-panel">
+          <div class="tab-bar" role="tablist" aria-label="Windows 11 实机截图切换">
+            <button type="button" class="tab-btn is-active" role="tab" aria-selected="true" data-shot-tab="desktop" data-i18n="showcase.tab.desktop">桌面壁纸层实景</button>
+            <button type="button" class="tab-btn" role="tab" aria-selected="false" data-shot-tab="editor" data-i18n="showcase.tab.editor">原位编辑与时间胶囊</button>
+            <button type="button" class="tab-btn" role="tab" aria-selected="false" data-shot-tab="prefs" data-i18n="showcase.tab.prefs">响应式偏好设置</button>
+          </div>
+
+          <div class="shot-frame" id="showcase-frame" role="button" tabindex="0" aria-label="Zoom screenshot">
+            <img
+              id="showcase-img"
+              src="./assets/img/shot-desktop-zh.webp"
+              width="1600"
+              height="900"
+              loading="lazy"
+              alt="Pinvello Windows 11 壁纸层桌面便笺实机截图"
+            />
+            <span class="shot-zoom-badge" data-i18n="showcase.zoom">点击图片放大细节</span>
+          </div>
+
+          <p class="shot-caption" id="showcase-caption" data-i18n="showcase.cap.desktop">
+            5 种纸张款式、7 种固定件与柔和景深阴影直接融合在 Windows 11 桌面壁纸层。
+          </p>
+        </div>
+      </div>
+
+      <dialog class="lightbox" id="shot-lightbox">
+        <img id="lightbox-img" src="./assets/img/shot-desktop-zh.webp" alt="" />
+        <div class="lightbox-bar">
+          <span id="lightbox-caption"></span>
+          <button type="button" class="btn btn-sm" id="lightbox-close">✕</button>
+        </div>
+      </dialog>
     </section>
 
-    <footer>Pinvello &copy; 2026 iori · Windows 11 Desktop Sticky Notes</footer>
+    <!-- 6 Physical Delete FX Playground + Real Trailer -->
+    <section class="section" id="delete-fx">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker" data-i18n="fx.eyebrow">TACTILE PHYSICS & FOLEY</div>
+          <h2 data-i18n="fx.title">删掉一张完成的小事，也要很有仪式感</h2>
+          <p data-i18n="fx.desc">
+            搭载 6 种物理删除动效与 44.1kHz 程序化拟真音效（撕胶带、揉皱纸球、投掷入桶、燃烧声、碎纸切条）。偏好设置里随时免费试玩，配合 10 条撤销栈秒删秒回。
+          </p>
+        </div>
+
+        <div class="fx-grid">
+          <article class="panel-card">
+            <h3 data-i18n="fx.stage.title">物理删除特效交互试验台</h3>
+            <div class="fx-pills" id="fx-pills"></div>
+            <canvas class="fx-canvas" id="fx-canvas" aria-label="Delete physics simulation canvas"></canvas>
+            <div class="fx-toolbar">
+              <label class="fx-slider">
+                <span data-i18n="fx.duration">动画时长</span>
+                <input type="range" id="fx-duration-slider" min="300" max="1800" step="50" value="900" />
+                <span id="fx-duration-value">900 ms</span>
+              </label>
+              <div style="display:flex;gap:8px">
+                <button type="button" class="btn btn-primary btn-sm" id="fx-replay-btn" data-i18n="fx.replay">播放效果</button>
+                <button type="button" class="btn btn-sm" id="fx-undo-btn" data-i18n="fx.undo">撤销恢复</button>
+              </div>
+            </div>
+            <p class="sandbox-status" id="fx-status" role="status"></p>
+          </article>
+
+          <article class="panel-card">
+            <h3 data-i18n="fx.video.title">Windows 11 真机演示预告片（含实机音效）</h3>
+            <div class="video-wrap">
+              <video
+                id="trailer-video"
+                controls
+                playsinline
+                preload="none"
+                poster="./assets/media/trailer-poster-zh.webp"
+                src="./assets/media/trailer-zh.mp4"
+                data-src-zh="./assets/media/trailer-zh.mp4"
+                data-src-en="./assets/media/trailer-en.mp4"
+                data-poster-zh="./assets/media/trailer-poster-zh.webp"
+                data-poster-en="./assets/media/trailer-poster-en.webp"
+              ></video>
+            </div>
+            <p class="shot-caption" style="margin-top:4px" data-i18n="fx.video.note">
+              1280×720 网页优化版 · 点击播放按需加载，不占用首屏流量
+            </p>
+            <div class="trust-chips" style="margin-top:auto">
+              <span class="trust-chip" data-zh="Shell COM 自动定位桌面回收站" data-en="Shell COM Recycle Bin targeting">Shell COM 自动定位桌面回收站</span>
+              <span class="trust-chip" data-zh="44.1kHz 程序化拟真音效" data-en="44.1kHz Procedural Foley SFX">44.1kHz 程序化拟真音效</span>
+              <span class="trust-chip" data-zh="10 条删除撤销栈" data-en="10-Slot Undo Stack">10 条删除撤销栈</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Craftsmanship & Local Extensions Bento -->
+    <section class="section" id="extensions">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker" data-i18n="craft.eyebrow">CRAFTSMANSHIP & EXTENSIONS</div>
+          <h2 data-i18n="craft.title">温润手绘字形，与面向创作者的本地扩展体系</h2>
+        </div>
+
+        <div class="bento-grid">
+          <article class="panel-card">
+            <h3 data-i18n="craft.fonts.title">6 款 SIL OFL-1.1 内置手绘体 + 全部系统字体</h3>
+            <p style="margin:0;color:var(--ink-muted);font-size:0.92rem" data-i18n="craft.fonts.desc">
+              开箱即用霞鹜文楷与全部本机系统字体；Pro 解锁全部 6 款精选多语种设计字体，或直接向 fonts/ 目录放入自定义 .ttf / .otf。
+            </p>
+            <div class="font-tiles">
+              <div class="font-tile">
+                <div class="font-tile-head"><span>LXGW WenKai</span><span class="mini-pro" style="background:var(--pin-sage-soft);border-color:var(--pin-sage-border);color:var(--ink)">FREE</span></div>
+                <div class="font-sample" style="font-family:var(--font-hand)">春风十里 · Aa</div>
+              </div>
+              <div class="font-tile">
+                <div class="font-tile-head"><span>Yozai</span><span class="mini-pro">PRO</span></div>
+                <div class="font-sample" style="font-style:italic">今日小确幸 · Aa</div>
+              </div>
+              <div class="font-tile">
+                <div class="font-tile-head"><span>Smiley Sans</span><span class="mini-pro">PRO</span></div>
+                <div class="font-sample" style="font-weight:800;font-style:italic">灵感闪现 · Aa</div>
+              </div>
+              <div class="font-tile">
+                <div class="font-tile-head"><span>Ark Pixel 12px</span><span class="mini-pro">PRO</span></div>
+                <div class="font-sample" style="font-family:var(--font-mono)">像素日志 · 01</div>
+              </div>
+              <div class="font-tile">
+                <div class="font-tile-head"><span>Shantell Sans</span><span class="mini-pro">PRO</span></div>
+                <div class="font-sample" style="font-family:'Segoe Print',cursive">Quick Notes</div>
+              </div>
+              <div class="font-tile">
+                <div class="font-tile-head"><span>Gaegu</span><span class="mini-pro">PRO</span></div>
+                <div class="font-sample" style="letter-spacing:0.03em">오늘의 메모</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel-card">
+            <h3 data-i18n="craft.langs.title">10 种界面语言即时切换，无需重启</h3>
+            <p style="margin:0;color:var(--ink-muted);font-size:0.92rem" data-i18n="craft.langs.desc">
+              自动识别 Windows 系统语言初始化，也支持随时在偏好设置一键切换，同步更新菜单、字体检索与 @today/@明天 时间关键词。
+            </p>
+            <div class="lang-cloud">
+              <span class="lang-chip">简体中文</span>
+              <span class="lang-chip">繁體中文</span>
+              <span class="lang-chip">English</span>
+              <span class="lang-chip">日本語</span>
+              <span class="lang-chip">한국어</span>
+              <span class="lang-chip">Deutsch</span>
+              <span class="lang-chip">Français</span>
+              <span class="lang-chip">Español</span>
+              <span class="lang-chip">Português</span>
+              <span class="lang-chip">Русский</span>
+            </div>
+            <div class="trust-chips" style="margin-top:auto">
+              <span class="trust-chip">@today / @今天 失焦自动锚定真实日历日期</span>
+              <span class="trust-chip">DirectWrite 语言文字过滤</span>
+            </div>
+          </article>
+
+          <article class="panel-card">
+            <h3 data-i18n="craft.doodles.title">10 款线性角落插画 + doodles/*.svg 关键词自动匹配</h3>
+            <p style="margin:0;color:var(--ink-muted);font-size:0.92rem" data-i18n="craft.doodles.desc">
+              点击下方演示词，模拟自定义文件 coffee-咖啡-拿铁.svg 如何随正文内容自动显现：
+            </p>
+            <div class="kw-demo-row">
+              <button type="button" class="pill-btn is-accent" data-doodle-demo data-doodle-target="calendar" data-doodle-file="calendar">“本周周会安排”</button>
+              <button type="button" class="pill-btn" data-doodle-demo data-doodle-target="doc" data-doodle-file="doc">“周五项目总结报告”</button>
+              <button type="button" class="pill-btn" data-doodle-demo data-doodle-target="check" data-doodle-file="check">“版本上线最终验收”</button>
+              <button type="button" class="pill-btn" data-doodle-demo data-doodle-target="sparkles" data-doodle-file="custom:coffee-咖啡-拿铁.svg">“下午点一杯热拿铁”</button>
+            </div>
+            <div style="font-size:0.84rem;color:var(--ink-muted)">
+              <span data-i18n="craft.doodles.match">当前匹配图标：</span>
+              <code id="doodle-match-result">calendar</code>
+            </div>
+            <div class="doodle-strip" id="bento-doodles"></div>
+          </article>
+
+          <article class="panel-card">
+            <h3 data-i18n="craft.themes.title">themes/*.json 自定义色卡与 %LOCALAPPDATA% 扩展目录</h3>
+            <p style="margin:0;color:var(--ink-muted);font-size:0.92rem" data-i18n="craft.themes.desc">
+              只需一个 10 行的 UTF-8 JSON 文件，即可为 5 个便笺色槽定义专属纸张与胶带透明色。
+            </p>
+            <pre class="json-box">{
+  "name": "海盐假日",
+  "tints": [
+    ["#FAF0D7F0", "#E2C57CCC"],
+    ["#D7EEF7F0", "#88BFD8CC"],
+    ["#DCF2E8F0", "#92C7B0CC"]
+  ]
+}</pre>
+            <div style="font-size:0.84rem;color:var(--ink-muted)">
+              <code>%LOCALAPPDATA%\Pinvello\{doodles, themes, fonts}\</code>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Free vs Pro Comparison -->
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker" data-i18n="pricing.eyebrow">TRANSPARENT PRICING</div>
+          <h2 data-i18n="pricing.title">免费版开箱即用，Pinvello Pro 一次性终身买断</h2>
+          <p data-i18n="pricing.desc">
+            没有订阅制焦虑，没有广告与会员弹窗。免费版即可满足轻量桌面便笺日常；需要无限贴纸与全套手作纸感时，一次买断永久解锁。
+          </p>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="tier-card">
+            <span class="tier-badge" data-i18n="pricing.free.badge">FREE CORE</span>
+            <div>
+              <h3 style="margin:0 0 4px" data-i18n="pricing.free.title">Pinvello 免费核心版</h3>
+              <div class="tier-price" data-i18n="pricing.free.price">免费</div>
+              <p style="margin:6px 0 0;color:var(--ink-muted);font-size:0.88rem" data-i18n="pricing.free.sub">
+                开箱可用 · 绝不限制既有便笺的阅读与编辑
+              </p>
+            </div>
+            <ul class="tier-list">
+              <li data-zh="桌面同时保留最多 3 张活跃便笺（超出 3 张的旧数据仍可读可改可删）" data-en="Up to 3 active desktop sticky notes at once (existing stores >3 remain readable & editable)">桌面同时保留最多 3 张活跃便笺（超出 3 张的旧数据仍可读可改可删）</li>
+              <li data-zh="全部 10 种界面语言即时切换，带多语言 @today/@明天 时间胶囊" data-en="All 10 UI languages with instant switching & multilingual @today/@tomorrow capsules">全部 10 种界面语言即时切换，带多语言 @today/@明天 时间胶囊</li>
+              <li data-zh="霞鹜文楷（LXGW WenKai）+ 全部本机 Windows 系统字体" data-en="LXGW WenKai + all installed Windows system fonts">霞鹜文楷（LXGW WenKai）+ 全部本机 Windows 系统字体</li>
+              <li data-zh="随壁纸自适应 & 经典暖阳两套主题、微翘卷角纸、默认胶带/图钉" data-en="Adaptive & Classic themes, Curled paper style, Auto washi tape/pushpin">随壁纸自适应 & 经典暖阳两套主题、微翘卷角纸、默认胶带/图钉</li>
+              <li data-zh="撕下飘落 / 柔和淡出 / 无动画 + 拟真音效，支持 Ctrl/框选与 10 条撤销栈" data-en="Peel Drop / Fade Out / None + Foley audio, Ctrl/marquee select & 10-slot undo">撕下飘落 / 柔和淡出 / 无动画 + 拟真音效，支持 Ctrl/框选与 10 条撤销栈</li>
+              <li data-zh="偏好设置内免费无限制试玩全部 8 种删除特效与 6 款内置手绘字体" data-en="Unrestricted live preview of all Pro delete FX & bundled fonts inside Preferences">偏好设置内免费无限制试玩全部 8 种删除特效与 6 款内置手绘字体</li>
+            </ul>
+            <a class="btn" href="https://apps.microsoft.com/detail/9NRGMTLZ4JXN" target="_blank" rel="noopener" data-i18n="pricing.free.cta">直接免费下载体验</a>
+          </article>
+
+          <article class="tier-card tier-card--pro">
+            <span class="tier-badge" data-i18n="pricing.pro.badge">ONE-TIME LIFETIME · 无订阅</span>
+            <div>
+              <h3 style="margin:0 0 4px" data-i18n="pricing.pro.title">Pinvello Pro</h3>
+              <div class="tier-price" data-i18n="pricing.pro.price">一次买断</div>
+              <p style="margin:6px 0 0;color:var(--ink-muted);font-size:0.88rem" data-i18n="pricing.pro.sub">
+                通过 Microsoft Store 内购解锁 · 绑定微软账号多机恢复
+              </p>
+            </div>
+            <ul class="tier-list">
+              <li data-zh="无限数量桌面便笺，自由平铺你的整块 4K 桌面或双屏工作区" data-en="Unlimited simultaneous sticky notes across single or multi-monitor desktops">无限数量桌面便笺，自由平铺你的整块 4K 桌面或双屏工作区</li>
+              <li data-zh="解锁全部 6 款内置开源手绘体（悠哉、得意黑、方舟像素、Shantell、Gaegu）" data-en="All 6 bundled SIL OFL curated fonts (Yozai, Smiley Sans, Ark Pixel, Shantell Sans, Gaegu)">解锁全部 6 款内置开源手绘体（悠哉、得意黑、方舟像素、Shantell、Gaegu）</li>
+              <li data-zh="解锁全部 6 套高辨识度主题（莫兰迪灰雾、复古牛皮、清爽森系、甜心马卡龙）" data-en="All 6 built-in themes (Morandi Mist, Vintage Kraft, Fresh Forest, Macaron Pastel)">解锁全部 6 套高辨识度主题（莫兰迪灰雾、复古牛皮、清爽森系、甜心马卡龙）</li>
+              <li data-zh="手撕毛边、真实镂空打孔、横线手账、方格点阵 5 种纸张 + 全 8 种固定件形态" data-en="Torn, Perforated, Ruled, Grid paper styles + all 8 fastener styles (clips, hooks, pearl pin)">手撕毛边、真实镂空打孔、横线手账、方格点阵 5 种纸张 + 全 8 种固定件形态</li>
+              <li data-zh="全部 8 种删除特效（揉成纸团、丢进回收站、燃尽化灰、碎纸机、随机）+ 150–3000ms 时长" data-en="All 8 delete options (Crumple, Toss to Bin, Burn, Shredder, Random) + 150–3000 ms custom timing">全部 8 种删除特效（揉成纸团、丢进回收站、燃尽化灰、碎纸机、随机）+ 150–3000ms 时长</li>
+              <li data-zh="一键「自动排列」避让桌面图标与锁定便笺，支持 doodles/、fonts/、themes/ 扩展" data-en="One-click Auto-Arrange avoiding icons & pinned notes, plus custom doodles/fonts/themes extensions">一键「自动排列」避让桌面图标与锁定便笺，支持 doodles/、fonts/、themes/ 扩展</li>
+            </ul>
+            <a class="btn btn-primary" href="https://apps.microsoft.com/detail/9NRGMTLZ4JXN" target="_blank" rel="noopener" data-i18n="pricing.pro.cta">前往 Microsoft Store 了解与获取</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy-First Trust Banner -->
+    <section class="section" style="padding-top:10px">
+      <div class="container">
+        <div class="trust-banner">
+          <div>
+            <h2 data-i18n="trust.title">隐私是第一原则，而不是附加条款</h2>
+            <p data-i18n="trust.desc">
+              你的每一句草稿、待办和坐标都只保存在本地 %LOCALAPPDATA%\Pinvello\。没有账号系统，没有后台埋点，底层钩子仅在内存即时判定桌面点击。
+            </p>
+          </div>
+          <div class="trust-actions">
+            <a class="btn btn-primary" href="./privacy.html" data-i18n="trust.privacy">阅读完整双语隐私政策</a>
+            <a class="btn" href="./support.html" data-i18n="trust.support">查看快捷键与常见问题</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Pinvello</strong> · <span data-i18n="footer.tagline">Windows 11 桌面壁纸层拟物便笺 · 开发者 iori · 开源字体兼容闭源商业软件</span>
+      </div>
+      <div class="footer-links">
+        <a href="./index.html" data-i18n="footer.home">产品首页</a>
+        <a href="./privacy.html" data-i18n="footer.privacy">隐私政策</a>
+        <a href="./support.html" data-i18n="footer.support">支持中心</a>
+        <a href="https://github.com/botmiao/pinvello-docs/issues" target="_blank" rel="noopener" data-i18n="footer.issues">GitHub 反馈</a>
+        <a href="https://apps.microsoft.com/detail/9NRGMTLZ4JXN" target="_blank" rel="noopener" data-i18n="footer.store">Microsoft Store</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="./assets/js/app.js"></script>
 </body>
 </html>
